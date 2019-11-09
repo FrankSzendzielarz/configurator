@@ -26,6 +26,12 @@ type ChainSpecArguments interface {
 // SetEIP passes an EIP value into the chainspecarguments
 func (c *chainSpecArguments) SetEIP(eip EIP) {
 	c.mutex.Lock()
+
+	//If the name is "0" we should attach the field directly to the arguments
+	//so that we get things like maxCodeSize directly available
+	//instead of having to indirect via an EIP0 field in the
+	//chainspec
+
 	eipName := fmt.Sprintf("EIP%d", eip.Name)
 	c.dynamicType.Elem().FieldByName(eipName).Set(reflect.ValueOf(eip))
 	c.mutex.Unlock()
