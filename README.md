@@ -5,7 +5,7 @@ as parameterised templates, taking chain spec arguments expressed as a set
 of EIPs, which are themselves chain spec arguments applied at certain block
 number
 
-Block number 0 EIPs are in this model synonymous with the basic initial 
+EIP0 is in this model synonymous with the basic initial 
 parameters, like maxCodeSize, gasLimit and so on. 
 
 The idea is that you define a chainspec that references either the initial
